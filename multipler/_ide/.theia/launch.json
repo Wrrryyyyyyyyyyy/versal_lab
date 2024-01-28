@@ -1,0 +1,51 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "multipler_x86",
+      "type": "gdb",
+      "request": "launch",
+      "target": "${workspaceFolder}/multipler/build/x86sim/Work/pthread/sim.out",
+      "cwd": "${workspaceFolder}/multipler/build/x86sim",
+      "gdbpath": "${env:XILINX_VITIS}/bin/xgdb",
+      "valuesFormatting": "prettyPrinters"
+    },
+    {
+      "type": "tcf-debug",
+      "request": "launch",
+      "name": "multipler_aiesim",
+      "debugType": "aiesimulator",
+      "target": {
+        "host": "127.0.0.1",
+        "port": 1,
+        "context": "MemSock"
+      },
+      "aieSimulatorOptions": {
+        "enablePipelineView": false,
+        "packageDirectory": "./Work",
+        "inputDirectory": "../..",
+        "additionalArgs": "",
+        "trace": {
+          "enableTrace": false,
+          "traceType": "onlineWdb",
+          "vcdFileName": "foo",
+          "generateXpe": false,
+          "traceModules": {
+            "io": true,
+            "dma": true,
+            "memory": true,
+            "core": true,
+            "shim": true,
+            "streamSwitch": true
+          }
+        },
+        "profile": {
+          "enableProfiling": false,
+          "profileAllCores": true,
+          "cores": ""
+        }
+      },
+      "internalConsoleOptions": "openOnSessionStart"
+    }
+  ]
+}
