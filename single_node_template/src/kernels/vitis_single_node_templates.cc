@@ -16,7 +16,7 @@ int (&vectorOut)[NUM_SAMPLES], int& factorOut ){
     window_writeincr(wout, wc1);
     
     sc1 = readincr(sin);
-    sc1 = sc1 + 5;
+    sc1 = sc1 * sc1;
     writeincr(sout, sc1);
 
     vectorOut[i] = vectorIn[i] + 5;
